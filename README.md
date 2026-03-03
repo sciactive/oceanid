@@ -2,6 +2,8 @@
 
 A full text search engine that isn't also a database.
 
+NOTICE: Oceanid is in very early development, and currently does not work. Therefore, don't use it yet.
+
 ## What is it?
 
 Oceanid is a server that takes keys and text as input. You can then give it a full text search query, and it will return the keys that have text that matches that search.
