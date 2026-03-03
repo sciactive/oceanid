@@ -2,12 +2,14 @@
   "name": "oceanid",
   "version": "0.0.1-alpha.1",
   "description": "A full text search engine that isn't also a database.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+    "oceanid": "oceanid.cjs"
+  },
   "scripts": {
     "format": "npx prettier --write .",
     "lint": "npx prettier --check .",
-    "clean": "test -d dist && rm -r dist || true",
+    "clean": "test -d bin && rm -r bin || true",
     "build": "tsc",
     "prepare": "husky install && npm run clean && npm run build",
     "test": "jest",
@@ -26,17 +28,22 @@
     "url": "https://github.com/sciactive/oceanid/issues"
   },
   "homepage": "https://github.com/sciactive/oceanid#readme",
+  "dependencies": {
+    "@sciactive/tokenizer": "^3.0.2",
+    "commander": "^14.0.3",
+    "express": "^5.2.1"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@tsconfig/recommended": "^1.0.1",
-    "@types/jest": "^27.4.0",
-    "husky": "^7.0.4",
-    "jest": "^27.4.7",
-    "lint-staged": "^12.1.7",
-    "prettier": "^2.5.1",
-    "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4"
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
+    "@tsconfig/recommended": "^1.0.13",
+    "@types/jest": "^30.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.3.1",
+    "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

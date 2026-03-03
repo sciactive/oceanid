@@ -1,1 +1,7 @@
-export default class Oceanid {}
+export default class Oceanid {
+  constructor() {
+    console.log('Hello, world.');
+  }
+}
+
+const oceanid = new Oceanid();
