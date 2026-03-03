@@ -24,7 +24,9 @@ Oceanid being under the AGPL means you can freely bring up an Oceanid server for
 
 If you run an unmodified Oceanid server, you do not need to provide the source code to your users. You can simply point them to the Oceanid repository if they ever ask.
 
-If you are running a modified Oceanid server, you may need to provide the modified Oceanid source code to your users, if your users have access to the server.
+If you are running a modified Oceanid server, you may need to provide the modified Oceanid source code to your users, if your users have access to the server, but not if you are only using it as a backend service for your app.
+
+See here for more detail: https://medium.com/swlh/understanding-the-agpl-the-most-misunderstood-license-86fd1fe91275
 
 # License
 
