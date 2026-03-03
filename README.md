@@ -18,10 +18,18 @@ Oceanid is great if the following conditions apply to your data:
 - You don't need the actual **text** back that you put in, just a list of **keys** that match a search (because your data is already stored somewhere else).
 - You don't want to use any built-in full text search feature in your existing storage, or your existing storage doesn't offer full text search.
 
+# What does the AGPL licensing mean?
+
+Oceanid being under the AGPL means you can freely bring up an Oceanid server for your app and use it just like you would use any other server. It **does not** mean you need to release your app under the same license. Oceanid runs as a standalone server, and therefore is not part of your app, and its license doesn't extend to your app.
+
+If you run an unmodified Oceanid server, you do not need to provide the source code to your users. You can simply point them to the Oceanid repository if they ever ask.
+
+If you are running a modified Oceanid server, you may need to provide the modified Oceanid source code to your users, if your users have access to the server.
+
 # License
 
 Oceanid
-Copyright (C) 2025 SciActive Inc
+Copyright (C) 2026 SciActive Inc
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published
