@@ -22,7 +22,7 @@ Oceanid is great if the following conditions apply to your data:
 
 Oceanid being under the AGPL means you can freely bring up an Oceanid server for your app and use it just like you would use any other server. It **does not** mean you need to release your app under the same license. Oceanid runs as a standalone server, and therefore is not part of your app, and its license doesn't extend to your app.
 
-If you run an unmodified Oceanid server, you do not need to provide the source code to your users. You can simply point them to the Oceanid repository if they ever ask.
+If you run an unmodified Oceanid server, you do not need to provide the source code to your users, even if they have direct access to the server. You can simply point them to the Oceanid repository if they ever ask.
 
 If you are running a modified Oceanid server, you may need to provide the modified Oceanid source code to your users, if your users have access to the server, but not if you are only using it as a backend service for your app.
 
