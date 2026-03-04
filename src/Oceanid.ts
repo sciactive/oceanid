@@ -1,11 +1,18 @@
+import { Tokenizer, StopWords } from '@sciactive/tokenizer';
+
 export class Oceanid {
-  public response: string;
+  constructor() {}
 
-  constructor(response: string) {
-    this.response = response;
-  }
+  getTokens(
+    input: string,
+    language: 'english' | 'spanish' | 'french' | 'arabic' = 'english',
+  ) {
+    const tokenizer = new Tokenizer({
+      language,
+      stopWords: StopWords[language],
+    });
+    const tokens = tokenizer.detailedTokenize(input);
 
-  respond() {
-    return this.response;
+    return JSON.stringify(tokens, undefined, 2);
   }
 }

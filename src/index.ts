@@ -6,7 +6,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { program, Option } from 'commander';
-import express from 'express';
+import express, { type Request } from 'express';
+import bodyParser from 'body-parser';
 import updateNotifier from 'update-notifier';
 
 import { Oceanid } from './Oceanid.js';
@@ -319,12 +320,47 @@ try {
     throw new Error('No hosts to listen on.');
   }
 
-  const oceanid = new Oceanid('Hello, world.');
+  const oceanid = new Oceanid();
 
-  app.use('/', (_request, response, next) => {
+  function getLanguage(request: Request) {
+    let language: 'english' | 'spanish' | 'french' | 'arabic' = 'english';
+    const contentLanguage = request.get('Content-Language') ?? 'en';
+    switch (contentLanguage.split('-')[0]) {
+      case 'es':
+        language = 'spanish';
+        break;
+      case 'fr':
+        language = 'french';
+        break;
+      case 'ar':
+        language = 'arabic';
+        break;
+      case 'en':
+      default:
+        // Do nothing.
+        break;
+    }
+    return language;
+  }
+
+  app.get('/tokens/:text', (request, response) => {
     response.status(200);
-    response.send(oceanid.respond());
-    next();
+    response.type('application/json');
+    response.send(oceanid.getTokens(request.params.text, getLanguage(request)));
+    response.end();
+  });
+
+  app.use('/tokens', bodyParser.text({ type: 'text/plain' }));
+  app.post('/tokens', async (request, response) => {
+    response.status(200);
+    response.type('application/json');
+    response.send(oceanid.getTokens(request.body, getLanguage(request)));
+    response.end();
+  });
+
+  app.use('/', (_request, response) => {
+    response.sendStatus(404);
+    response.end();
   });
 
   // Run server.

@@ -28,6 +28,45 @@ If you are running a modified Oceanid server, you may need to provide the modifi
 
 See here for more detail: https://medium.com/swlh/understanding-the-agpl-the-most-misunderstood-license-86fd1fe91275
 
+# Testing
+
+Clone the repo and install the npm modules:
+
+```sh
+npm i
+```
+
+You can then run this command to bring up a server:
+
+```sh
+./oceanid.cjs --port 8080
+```
+
+Then run this command to get the tokens for a string:
+
+```sh
+curl -X POST -H "Content-Type: text/plain" "http://localhost:8080/tokens" --data "hello world"
+```
+
+Or, for another language, you can provide a Content-Language header:
+
+```sh
+# es-US for Spanish (the country part is ignored, so just "es" would work fine)
+curl -X POST -H "Content-Type: text/plain" -H "Content-Language: es-US" "http://localhost:8080/tokens" --data "Hola, ¿cómo estás? ¿Quieres ir al Taco Bell para comer?"
+```
+
+Oceanid supports English, Spanish, French, and Arabic.
+
+If you're interested in helping add more languages, all we need for many of them is a list of stop words. You can contribute them here:
+
+https://github.com/sciactive/tokenizer/blob/main/src/StopWords.ts
+
+For Japanese, we only need a Snowball algorith. You can contribute that here:
+
+https://github.com/snowballstem/snowball/tree/v3.0.1/algorithms
+
+For languages that have neither a Snowball algorithm nor a list of stop words, we need both of those.
+
 # License
 
 Oceanid
