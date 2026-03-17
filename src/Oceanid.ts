@@ -12,7 +12,6 @@ export class Oceanid {
       stopWords: StopWords[language],
     });
     const tokens = tokenizer.detailedTokenize(input);
-
-    return JSON.stringify(tokens, undefined, 2);
+    return tokens;
   }
 }

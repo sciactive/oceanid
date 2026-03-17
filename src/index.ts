@@ -346,7 +346,8 @@ try {
   app.get('/tokens/:text', (request, response) => {
     response.status(200);
     response.type('application/json');
-    response.send(oceanid.getTokens(request.params.text, getLanguage(request)));
+    const tokens = oceanid.getTokens(request.params.text, getLanguage(request));
+    response.send(JSON.stringify(tokens, undefined, 2));
     response.end();
   });
 
@@ -354,7 +355,8 @@ try {
   app.post('/tokens', async (request, response) => {
     response.status(200);
     response.type('application/json');
-    response.send(oceanid.getTokens(request.body, getLanguage(request)));
+    const tokens = oceanid.getTokens(request.body, getLanguage(request));
+    response.send(JSON.stringify(tokens, undefined, 2));
     response.end();
   });
 
