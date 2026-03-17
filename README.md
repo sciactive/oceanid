@@ -67,6 +67,12 @@ https://github.com/snowballstem/snowball/tree/v3.0.1/algorithms
 
 For languages that have neither a Snowball algorithm nor a list of stop words, we need both of those.
 
+# Human Authorship
+
+This project adheres to the [SciActive Human Contribution Policy](HUMAN-CONTRIBUTION-POLICY.md).
+
+[![Seal of Human Authorship](https://sciactive.com/wp-content/uploads/2026/03/Seal-of-Human-Authorship-300.png)](https://sciactive.com/human-contribution-policy/)
+
 # License
 
 Oceanid
